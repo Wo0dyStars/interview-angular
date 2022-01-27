@@ -1,0 +1,64 @@
+<div class="home" routerLink="/home">
+  <mat-icon>chevron_left</mat-icon>
+  <span>Home</span>
+</div>
+
+<div class="main-container">
+    <header>
+      <section class="image-container">
+        <img src="../assets/maths.jpg" alt="">
+      </section>
+    
+      <form [formGroup]="form" class="form">  
+        <div class="mat-field-group">
+          <mat-form-field appearance="outline">
+            <mat-label>Fizz</mat-label>
+            <input matInput type="number" min="1" required placeholder="Fizz" formControlName="fizz">
+          </mat-form-field>
+        
+          <div class="buttons">
+            <button class="btn btn-secondary" (click)="updateValue('fizz', 1)">+</button>
+            <button class="btn btn-light" (click)="updateValue('fizz', -1)">-</button>
+          </div>
+        </div>
+  
+        <div class="mat-field-group">
+          <mat-form-field appearance="outline">
+            <mat-label>Buzz</mat-label>
+            <input matInput type="number" min="1" required placeholder="Buzz" formControlName="buzz">
+          </mat-form-field>
+        
+          <div class="buttons">
+            <button class="btn btn-secondary" (click)="updateValue('buzz', 1)">+</button>
+            <button class="btn btn-light" (click)="updateValue('buzz', -1)">-</button>
+          </div>
+        </div>
+      </form>
+    </header>
+  
+    <div class="threshold-container">
+      <form [formGroup]="form">
+        <label for="threshold">Threshold</label>
+  
+        <div class="button-group">
+          <button class="btn btn-light" (click)="updateValue('threshold', -1)">-</button>
+          <input type="number" id="threshold" min="20" max="100" class="form-control" placeholder="Threshold" formControlName="threshold">
+          <button class="btn btn-success" (click)="updateValue('threshold', 1)">+</button>
+        </div>
+  
+        <div class="alert alert-danger mt-4 text-center" *ngIf="thresholdError">
+          Please set a threshold value between 20 and 100.
+        </div>
+      </form>
+    </div>
+    
+    <div class="elements">
+      <div *ngFor="let element of fizzBuzz" [class]="element.css" class="element">
+        {{ element.value }}
+      </div>
+    </div>
+    
+    <div class="footer">
+      <a href='https://www.freepik.com/vectors/background'>Background vector created by pikisuperstar - www.freepik.com</a>
+    </div>
+</div>

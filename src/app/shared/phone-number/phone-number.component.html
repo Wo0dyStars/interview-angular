@@ -1,0 +1,17 @@
+<form [formGroup]="form">
+    <ngx-intl-tel-input 
+        [preferredCountries]="preferredCountries"
+        [enableAutoCountrySelect]="false" 
+        [enablePlaceholder]="true" 
+        [searchCountryFlag]="true"
+        [searchCountryField]="[SearchCountryField.Iso2, SearchCountryField.Name]"
+        [selectFirstCountry]="true" 
+        [selectedCountryISO]="CountryISO.UnitedKingdom"
+        [maxLength]="'15'" 
+        [phoneValidation]="true" 
+        [separateDialCode]="separateDialCode"
+        (keyup)="onChanges()"
+        name="phone" 
+        formControlName="phone">
+    </ngx-intl-tel-input>
+</form>
